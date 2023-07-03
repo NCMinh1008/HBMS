@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Hotel Booking Management System | Hotel :: Facilities</title>
+		<title>Sand Dollar Hotel | Hotel :: Facilities</title>
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -54,7 +54,7 @@
 							?>
 							<div class="col-md-6 services-grid">
 								<br/>
-								<div class="col-md-5 serv-img">
+								<div class="col-md-4 serv-img">
 									<img src="admin/images/<?php echo $row->Image;?>" height="300" width="300" alt="" class="img-responsive">
 								</div>
 								<br/>
@@ -74,7 +74,6 @@
 		<!--services-->
 
 		<!--footer-->
-		<?php include_once('includes/footer.php');?>
 		<!--footer-->
 	</body>
 </html>

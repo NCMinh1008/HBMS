@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Hotel Booking Management System | Hotel :: Gallery</title>
+		<title>Sand Dollar Hotel | Hotel :: Gallery</title>
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 		<link rel="stylesheet" href="css/lightbox.css">
@@ -62,7 +62,6 @@
 		</div>
 
 		<!--footer-->
-		<?php include_once('includes/footer.php');?>
 		<!--footer-->
 	</body>
 </html>

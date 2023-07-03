@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Hotel Booking Management System | About Us :: Page</title>
+		<title>Sand Dollar Hotel | About Us :: Page</title>
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -60,6 +60,5 @@
 			<?php include_once('includes/getintouch.php');?>
 		</div> 
 		<!--about-->
-		<?php include_once('includes/footer.php');?>
 	</body>
 </html>

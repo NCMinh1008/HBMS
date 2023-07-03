@@ -27,7 +27,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Hotel Booking Management System | Hotel :: Contact Us</title>
+		<title>Sand Dollar Hotel | Hotel :: Contact Us</title>
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
@@ -62,6 +62,8 @@
 			<div class="contact">
 				<div class="container">
 					<h2>contact us</h2>
+					<br/>
+					<p style="text-align: center; font-size: 2.2rem; font-weight: 500; padding-bottom: 2rem">Please leave your review here</p>
 					<div class="contact-grids">
 						<div class="col-md-6 contact-left">
 							<?php
@@ -85,7 +87,7 @@
 									foreach($results as $row) {               
 							?>
 							<address>
-								<p><?php  echo htmlentities($row->PageTitle);?></p>
+								<h4><?php  echo htmlentities($row->PageTitle);?></h4>
 								<p><?php  echo htmlentities($row->PageDescription);?></p>
 								<p>Telephone : +<?php  echo htmlentities($row->MobileNumber);?></p>
 								<p>E-mail : <?php  echo htmlentities($row->Email);?></p>
@@ -111,6 +113,5 @@
 			<?php include_once('includes/getintouch.php');?>
 		</div>
 		<!--about-->
-		<?php include_once('includes/footer.php');?>
 	</body>
 </html>

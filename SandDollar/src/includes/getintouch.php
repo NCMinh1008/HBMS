@@ -33,7 +33,8 @@
 					if($query->rowCount() > 0) {
 						foreach($results as $row) {               
 				?>
-				<h4><?php  echo htmlentities($row->PageTitle);?></h4>				
+				<h4><?php  echo htmlentities($row->PageTitle);?></h4>		
+				<br>		
 				<p><?php  echo htmlentities($row->PageDescription);?></p>
 				</div><?php $cnt=$cnt+1;}} ?>
 					<div class="clearfix"></div>
