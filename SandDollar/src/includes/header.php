@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="navbar-brand">
-                    <h1><a href="index.php">HBMS</a></h1>
+                    <h1><a href="index.php">Sand Dollar Hotel</a></h1>
                 </div>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
