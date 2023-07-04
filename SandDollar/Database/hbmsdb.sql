@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2023 at 02:55 PM
+-- Generation Time: June 06, 2023 at 02:55 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -120,7 +120,7 @@ CREATE TABLE `tblcontact` (
 --
 
 INSERT INTO `tblcontact` (`ID`, `Name`, `MobileNumber`, `Email`, `Message`, `EnquiryDate`, `IsRead`) VALUES
-(1, 'Joh Doe', 1425365412, 'johnd@test.com', 'I want o stay in hotel', '2023-05-05 02:53:52', 1);
+(1, 'Joh Doe', 1425365412, 'johnd@gmail.com', 'I want o stay in hotel', '2023-05-05 02:53:52', 1);
 
 -- --------------------------------------------------------
 
@@ -143,7 +143,7 @@ CREATE TABLE `tblfacility` (
 INSERT INTO `tblfacility` (`ID`, `FacilityTitle`, `Description`, `Image`, `CreationDate`) VALUES
 (1, '24-Hour room service', '24-Hour room service available', 'b9fb9d37bdf15a699bc071ce49baea531582890659.jpg', '2023-04-29 11:54:05'),
 (2, 'Free wireless internet access', 'Free wireless internet access available in room restro area', '7fdc1a630c238af0815181f9faa190f51582890845.jpg', '2023-04-29 11:54:05'),
-(3, 'Laundry service', 'Free Laundry service available for a customer who book queen and king size room', '3c7baecb174a0cbcc64507e9c3308c4b1582890987.jpg', '2023-04-29 11:54:05'),
+(3, 'Laundry service', 'Free Laundry service for a customer in queen and king size room', '3c7baecb174a0cbcc64507e9c3308c4b1582890987.jpg', '2023-04-29 11:54:05'),
 (4, 'Tour & excursions', 'vehicle are available for tour and travels', '1e6ae4ada992769567b71815f124fac51582891174.jpg', '2023-04-29 11:54:05'),
 (5, 'Airport transfers', 'Airport transfers facility available on demand', 'c9e82378a39eec108727a123b09056651582891272.jpg', '2023-04-29 11:54:05'),
 (6, 'Babysitting on request', 'Babysitting on request', 'c26be60cfd1ba40772b5ac48b95ab19b1582891331.png', '2023-04-29 11:54:05'),
@@ -172,7 +172,7 @@ CREATE TABLE `tblpage` (
 
 INSERT INTO `tblpage` (`ID`, `PageType`, `PageTitle`, `PageDescription`, `Email`, `MobileNumber`, `UpdationDate`) VALUES
 (1, 'aboutus', 'About Us', 'We have 72 comfortably equipped rooms, including two suites: The President Suite and the Ambassador Suite, with over one hundred metres of surface area, which are sure to awe even the most demanding Guests. We offer 7 rooms, where we have been preparing family and business meetings already for 15 years.', NULL, NULL, NULL),
-(2, 'contactus', 'Contact Us', 'D-204, Hole Town South West,Delhi-110096,India', 'info@gmail.com', 8529631236, '2023-04-30 14:14:30');
+(2, 'contactus', 'Contact Us', '1st, Dai Co Viet St., Hai Ba Trung, Ha Noi, Viet nam', 'info@gmail.com', 0123456789, '2023-06-30 19:30:00');
 
 -- --------------------------------------------------------
 
