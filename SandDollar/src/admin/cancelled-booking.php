@@ -71,7 +71,7 @@
 
                             <tbody>
                               <?php
-                                f (isset($_GET['pageno'])) {
+                                if (isset($_GET['pageno'])) {
                                   $pageno = $_GET['pageno'];
                                 } else {
                                   $pageno = 1;
@@ -144,7 +144,6 @@
                   </div>
                 </div>
                 <!-- end content -->
-                <?php include_once('includes/footer.php');?>
               </div>
             </div>
             <!--content-->

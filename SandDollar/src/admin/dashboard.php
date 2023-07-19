@@ -233,7 +233,6 @@
 						<div class="clearfix"></div>
 
 						<!-- <div class="content-top"> -->
-						<?php include_once('includes/footer.php');?>
 					</div>
 					<!--content-->
 				</div>
