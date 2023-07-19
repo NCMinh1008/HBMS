@@ -144,6 +144,7 @@
                   </div>
                 </div>
                 <!-- end content -->
+                <?php include_once('includes/footer.php'); ?>
               </div>
             </div>
             <!--content-->

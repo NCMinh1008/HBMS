@@ -2,7 +2,7 @@
          
             <div class="footer">
                     <div class="clearfix"> </div>
-                        <p style="font-family: cursive;"> Hotel Booking Management System </p>
+                        <p style="font-family: cursive;"> Sand Dollar Hotel Management System </p>
             </div>
         </div>      <script>
                             var toggle = true;
