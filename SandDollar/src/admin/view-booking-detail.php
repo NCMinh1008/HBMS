@@ -30,7 +30,7 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 	<html>
 
 	<head>
-		<title>Hotel Booking Management System | View Booking</title>
+		<title>Sand Dollar Hotel Admin | View Booking</title>
 
 		<script type="application/x-javascript">
 			addEventListener("load", function() {
