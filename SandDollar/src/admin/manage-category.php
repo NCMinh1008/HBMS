@@ -5,20 +5,22 @@ include('includes/dbconnection.php');
 if (strlen($_SESSION['hbmsaid'] == 0)) {
 	header('location:logout.php');
 } else {
-	$vid = $_GET['viewid'];
-	$isread = 1;
-	$sql = "update tblcontact set IsRead=:isread where ID=:vid";
-	$query = $dbh->prepare($sql);
-	$query->bindParam(':isread', $isread, PDO::PARAM_STR);
-	$query->bindParam(':vid', $vid, PDO::PARAM_STR);
-	$query->execute();
+	// Code for deleting product from cart
+	if (isset($_GET['delid'])) {
+		$rid = intval($_GET['delid']);
+		$sql = "delete from tblcategory where ID=:rid";
+		$query = $dbh->prepare($sql);
+		$query->bindParam(':rid', $rid, PDO::PARAM_STR);
+		$query->execute();
+		echo "<script>alert('Data deleted');</script>";
+		echo "<script>window.location.href = 'manage-category.php'</script>";
+	}
 ?>
-
 	<!DOCTYPE HTML>
 	<html>
 
 	<head>
-		<title>Sand Dollar Hotel Admin | View Enquiry</title>
+		<title>Sand Dollar Hotel Admin | Manage Category</title>
 
 		<script type="application/x-javascript">
 			addEventListener("load", function() {
@@ -99,54 +101,91 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 							<!-- start content -->
 							<div class="grids">
 								<div class="progressbar-heading grids-heading">
-									<h2>View Enquiry</h2>
+									<h2>Manage Category</h2>
 								</div>
 								<div class="panel panel-widget forms-panel">
 									<div class="forms">
 										<div class="form-grids widget-shadow" data-example-id="basic-forms">
 											<div class="form-title">
-												<h4>View Enquiry</h4>
+												<h4>Manage Category </h4>
 											</div>
 											<div class="form-body">
 
-												<?php
-
-												$sql = "SELECT * from  tblcontact where ID=$vid";
-												$query = $dbh->prepare($sql);
-												$query->execute();
-												$results = $query->fetchAll(PDO::FETCH_OBJ);
-												$cnt = 1;
-												if ($query->rowCount() > 0) {
-													foreach ($results as $row) {               ?>
-
-														<table border="1" class="table table-bordered">
-															<tr align="center">
-																<td colspan="4" style="font-size:20px;color:blue">
-																	User Details</td>
-															</tr>
-
-															<tr>
-																<th scope>Name</th>
-																<td><?php echo ($row->Name); ?></td>
-																<th scope>Mobile Number</th>
-																<td><?php echo ($row->MobileNumber); ?></td>
-															</tr>
-															<tr>
-																<th scope>Email</th>
-																<td><?php echo ($row->Email); ?></td>
-																<th>Message</th>
-																<td><?php echo ($row->Message); ?></td>
-															</tr>
+												<table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination">
+													<thead>
+														<tr>
+															<th class="text-center">S.No</th>
+															<th>Category Name</th>
+															<th>Category Description</th>
+															<th>Creation Date</th>
+															<th>Action</th>
+														</tr>
+													</thead>
+													<tbody>
+														<?php
+														if (isset($_GET['pageno'])) {
+															$pageno = $_GET['pageno'];
+														} else {
+															$pageno = 1;
+														}
+														// Formula for pagination
+														$no_of_records_per_page = 3;
+														$offset = ($pageno - 1) * $no_of_records_per_page;
+														$ret = "SELECT ID FROM tblcategory";
+														$query1 = $dbh->prepare($ret);
+														$query1->execute();
+														$results1 = $query1->fetchAll(PDO::FETCH_OBJ);
+														$total_rows = $query1->rowCount();
 
 
-													<?php $cnt = $cnt + 1;
-													}
-												} ?>
-														</table>
-														<p>
-															<a href="javascript:history.go(-1)" title="Return to the previous page">&laquo; Go back</a>
-														</p>
+														$total_pages = ceil($total_rows / $no_of_records_per_page);
+														$sql = "SELECT * from tblcategory LIMIT $offset, $no_of_records_per_page";
+														$query = $dbh->prepare($sql);
+														$query->execute();
+														$results = $query->fetchAll(PDO::FETCH_OBJ);
 
+														$cnt = 1;
+														if ($query->rowCount() > 0) {
+															foreach ($results as $row) {               ?>
+																<tr>
+																	<td class="text-center"><?php echo htmlentities($cnt); ?></td>
+																	<td class="font-w600"><?php echo htmlentities($row->CategoryName); ?></td>
+																	<td><?php echo htmlentities($row->Description); ?></td>
+																	<td><span class="badge badge-primary"><?php echo htmlentities($row->Date); ?></span></td>
+																	<td class="d-none d-sm-table-cell"><a href="manage-category.php?delid=<?php echo ($row->ID); ?>" onclick="return confirm('Do you really want to Delete ?');" class="btn btn-danger btn-sm">Delete</a></td>
+																</tr>
+														<?php $cnt = $cnt + 1;
+															}
+														} ?>
+
+
+
+													</tbody>
+												</table>
+												<div align="left">
+													<ul class="pagination">
+														<li><a href="?pageno=1"><strong>First></strong></a></li>
+														<li class="<?php if ($pageno <= 1) {
+																		echo 'disabled';
+																	} ?>">
+															<a href="<?php if ($pageno <= 1) {
+																			echo '#';
+																		} else {
+																			echo "?pageno=" . ($pageno - 1);
+																		} ?>"><strong style="padding-left: 10px">Prev></strong></a>
+														</li>
+														<li class="<?php if ($pageno >= $total_pages) {
+																		echo 'disabled';
+																	} ?>">
+															<a href="<?php if ($pageno >= $total_pages) {
+																			echo '#';
+																		} else {
+																			echo "?pageno=" . ($pageno + 1);
+																		} ?>"><strong style="padding-left: 10px">Next></strong></a>
+														</li>
+														<li><a href="?pageno=<?php echo $total_pages; ?>"><strong style="padding-left: 10px">Last</strong></a></li>
+													</ul>
+												</div>
 											</div>
 										</div>
 									</div>

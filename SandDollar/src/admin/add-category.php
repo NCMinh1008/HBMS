@@ -5,20 +5,35 @@ include('includes/dbconnection.php');
 if (strlen($_SESSION['hbmsaid'] == 0)) {
 	header('location:logout.php');
 } else {
-	$vid = $_GET['viewid'];
-	$isread = 1;
-	$sql = "update tblcontact set IsRead=:isread where ID=:vid";
-	$query = $dbh->prepare($sql);
-	$query->bindParam(':isread', $isread, PDO::PARAM_STR);
-	$query->bindParam(':vid', $vid, PDO::PARAM_STR);
-	$query->execute();
-?>
+	if (isset($_POST['submit'])) {
 
+		$hbmsaid = $_SESSION['hbmsaid'];
+		$cname = $_POST['cname'];
+		$catdes = $_POST['catdes'];
+		$price = $_POST['price'];
+
+		$sql = "insert into tblcategory(CategoryName,Description,Price)values(:cname,:catdes,:price)";
+		$query = $dbh->prepare($sql);
+		$query->bindParam(':cname', $cname, PDO::PARAM_STR);
+		$query->bindParam(':catdes', $catdes, PDO::PARAM_STR);
+		$query->bindParam(':price', $price, PDO::PARAM_STR);
+		$query->execute();
+
+		$LastInsertId = $dbh->lastInsertId();
+		if ($LastInsertId > 0) {
+			echo '<script>alert("Category has been added.")</script>';
+			echo "<script>window.location.href ='add-category.php'</script>";
+		} else {
+			echo '<script>alert("Something Went Wrong. Please try again")</script>';
+		}
+	}
+
+?>
 	<!DOCTYPE HTML>
 	<html>
 
 	<head>
-		<title>Sand Dollar Hotel Admin | View Enquiry</title>
+		<title>Sand Dollar Hotel Admin | Add Category</title>
 
 		<script type="application/x-javascript">
 			addEventListener("load", function() {
@@ -99,54 +114,22 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 							<!-- start content -->
 							<div class="grids">
 								<div class="progressbar-heading grids-heading">
-									<h2>View Enquiry</h2>
+									<h2>Add Category</h2>
 								</div>
 								<div class="panel panel-widget forms-panel">
 									<div class="forms">
 										<div class="form-grids widget-shadow" data-example-id="basic-forms">
 											<div class="form-title">
-												<h4>View Enquiry</h4>
+												<h4>Add Category :</h4>
 											</div>
 											<div class="form-body">
 
-												<?php
-
-												$sql = "SELECT * from  tblcontact where ID=$vid";
-												$query = $dbh->prepare($sql);
-												$query->execute();
-												$results = $query->fetchAll(PDO::FETCH_OBJ);
-												$cnt = 1;
-												if ($query->rowCount() > 0) {
-													foreach ($results as $row) {               ?>
-
-														<table border="1" class="table table-bordered">
-															<tr align="center">
-																<td colspan="4" style="font-size:20px;color:blue">
-																	User Details</td>
-															</tr>
-
-															<tr>
-																<th scope>Name</th>
-																<td><?php echo ($row->Name); ?></td>
-																<th scope>Mobile Number</th>
-																<td><?php echo ($row->MobileNumber); ?></td>
-															</tr>
-															<tr>
-																<th scope>Email</th>
-																<td><?php echo ($row->Email); ?></td>
-																<th>Message</th>
-																<td><?php echo ($row->Message); ?></td>
-															</tr>
-
-
-													<?php $cnt = $cnt + 1;
-													}
-												} ?>
-														</table>
-														<p>
-															<a href="javascript:history.go(-1)" title="Return to the previous page">&laquo; Go back</a>
-														</p>
-
+												<form method="post">
+													<div class="form-group"> <label for="exampleInputEmail1">Category Title</label> <input type="text" class="form-control" name="cname" value="" required='true'> </div>
+													<div class="form-group"> <label for="exampleInputEmail1">Description</label> <textarea type="text" class="form-control" name="catdes" value=""></textarea> </div>
+													<div class="form-group"> <label for="exampleInputEmail1">Price</label> <input type="text" class="form-control" name="price" value="" required='true'> </div>
+													<button type="submit" class="btn btn-default" name="submit">Add</button>
+												</form>
 											</div>
 										</div>
 									</div>
@@ -404,8 +387,6 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 			});
 		</script>
 		<script src="js/menu_jquery.js"></script>
-
-		<script src="js/pages/be_tables_datatables.js"></script>
 	</body>
 
 	</html><?php }  ?>
