@@ -44,7 +44,7 @@
 
                                           </ul>
                                      </li>
-                                    <li><a href="reg-users.php"><i class="lnr lnr-users"></i> <span>Reg Users</span></a></li>
+                                    <li><a href="reg-users.php"><i class="lnr lnr-users"></i> <span>Register Users</span></a></li>
                                     <li id="menu-academico" ><a href="#"><i class="lnr lnr-book"></i> <span>Enquiry</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                                          <ul id="menu-academico-sub" >
                                             <li id="menu-academico-avaliacoes" ><a href="read-enquiry.php">Read Enquiry</a></li>
@@ -52,13 +52,13 @@
                                            
                                           </ul>
                                      </li>
-                                      <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i> <span>Search</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                                      <!-- <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i> <span>Search</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                                          <ul id="menu-academico-sub" >
                                             <li id="menu-academico-avaliacoes" ><a href="search-enquiry.php">Search Enquiry</a></li>
                                             <li id="menu-academico-boletim" ><a href="search-booking.php">Search Booking</a></li>
                                            
                                           </ul>
-                                     </li>
+                                     </li> -->
                                     
                                   
                                     <li id="menu-academico" ><a href="#"><i class="lnr lnr-layers"></i> <span>Reports</span> <span class="fa fa-angle-right" style="float: right"></span></a>
