@@ -64,7 +64,7 @@ if (strlen($_SESSION['hbmsaid']==0)) {
                                                             <th>Name</th>
                                                             <th>Mobile Number</th>
                                                             <th>Email</th>
-                                                            <th>Reg Date</th>
+                                                            <th>Register Date</th>
                                                             <th>Booking</th>
                                                         </tr>
                                                     </thead>
@@ -103,7 +103,7 @@ if (strlen($_SESSION['hbmsaid']==0)) {
                                                             <td><?php  echo htmlentities($row->MobileNumber);?></td>
                                                             <td><?php  echo htmlentities($row->Email);?></td>
                                                             <td><span class="badge badge-primary"><?php  echo htmlentities($row->RegDate);?></span></td>
-                                                            <td><a href="user-bookings.php?uid=<?php  echo htmlentities($row->ID);?>&&uname=<?php  echo htmlentities($row->FullName);?>" class="btn btn-primary" target="blank">View Bookings</a></td>
+                                                            <td><a href="user-bookings.php?uid=<?php  echo htmlentities($row->ID);?>&&uname=<?php  echo htmlentities($row->FullName);?>" class="btn btn-primary">View Bookings</a></td>
                                                         </tr>
 
                                                         <?php $cnt=$cnt+1;}} ?> 

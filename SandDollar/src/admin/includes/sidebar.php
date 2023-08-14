@@ -21,7 +21,7 @@
 
                                           </ul>
                                      </li>
-                                      <li id="menu-academico" ><a href="#"><i class="lnr lnr-pencil"></i> <span>New Room</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                                      <li id="menu-academico" ><a href="#"><i class="lnr lnr-pencil"></i> <span>Room Managemment</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                                          <ul id="menu-academico-sub" >
                                             <li id="menu-academico-avaliacoes" ><a href="add-room.php">Add Room</a></li>
                                             <li id="menu-academico-boletim" ><a href="manage-room.php">Manage Room</a></li>
