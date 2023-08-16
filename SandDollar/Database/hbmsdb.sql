@@ -71,8 +71,8 @@ CREATE TABLE `tblbooking` (
 --
 
 INSERT INTO `tblbooking` (`ID`, `RoomId`, `BookingNumber`, `UserID`, `IDType`, `Gender`, `Address`, `CheckinDate`, `CheckoutDate`, `BookingDate`, `Remark`, `Status`, `UpdationDate`) VALUES
-(1, 1, '390343987', 3, 'Voter Card', 'Female', 'A 123 Gaur Apartment Ghaziabad UP 201017', '2023-05-10', '2023-05-15', '2023-05-02 07:12:29', 'Booking accepted', 'Approved', '2023-05-02 07:15:51'),
-(2, 2, '545403040', 4, 'Voter Card', 'Male', 'A 12232 ABC Apartment Mayur Vihar New Delhi', '2023-05-20', '2023-05-25', '2023-05-05 02:50:41', 'Booking Accepted', 'Approved', '2023-05-05 02:51:35');
+(1, 1, '390343987', 3, 'Identification Card', 'Female', 'A 123 Gaur Apartment Ghaziabad UP 201017', '2023-05-10', '2023-05-15', '2023-05-02 07:12:29', 'Booking accepted', 'Approved', '2023-05-02 07:15:51'),
+(2, 2, '545403040', 4, 'Visa Card', 'Male', 'A 12232 ABC Apartment Mayur Vihar New Delhi', '2023-05-20', '2023-05-25', '2023-05-05 02:50:41', 'Booking Accepted', 'Approved', '2023-05-05 02:51:35');
 
 -- --------------------------------------------------------
 
