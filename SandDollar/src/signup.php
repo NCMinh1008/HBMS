@@ -22,8 +22,7 @@ if (isset($_POST['submit'])) {
 		$query->execute();
 		$lastInsertId = $dbh->lastInsertId();
 		if ($lastInsertId) {
-
-			echo "<script>alert('You have successfully registered with us');</script>";
+			echo "<script type='text/javascript'>document.location ='signin.php'; alert('You have successfully registered with us') ;</script>";
 		} else {
 
 			echo "<script>alert('Something went wrong.Please try again');</script>";

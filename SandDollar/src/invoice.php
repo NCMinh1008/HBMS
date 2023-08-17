@@ -144,7 +144,7 @@ where tblbooking.ID=:invid";
               </table>
             </table>
             <p style="text-align: center;font-size: 20px">
-              <input name="Submit2" type="submit" class="btn btn-success" style="color: red;font-size: 20px" value="Print" onClick="return f3();" style="cursor: pointer;" />
+              <input name="Submit2" type="submit" class="btn btn-success" style="font-size: 20px" value="Print" onClick="return f3();" style="cursor: pointer;" />
             </p>
       </div>
 
