@@ -5,7 +5,15 @@ include('includes/dbconnection.php');
 if (strlen($_SESSION['hbmsaid'] == 0)) {
     header('location:logout.php');
 } else {
-
+if (isset($_POST['submit'])) {
+        $fdate = $_POST['fromdate'];
+        $tdate = $_POST['todate'];
+        
+        if ($fdate > $tdate) {
+            echo '<script>alert("To Date must be greater than or equal to From Date.")</script>';
+			echo '<script>window.location.href = "enquiry-betdates-reports.php";</script>';
+        } 
+    }
 ?>
     <!DOCTYPE HTML>
     <html>
