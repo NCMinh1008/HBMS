@@ -250,7 +250,7 @@ where tblbooking.ID=:vid";
                 $query->bindParam(':bookingid', $bookingid, PDO::PARAM_STR);
                 $query->execute();
 
-                echo '<script>alert("Remark has been updated")</script>';
+                echo '<script>alert("Your booking is deleted successfully")</script>';
                 echo "<script>window.location.href ='my-booking.php'</script>";
               }
               ?>
