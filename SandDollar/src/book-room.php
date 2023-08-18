@@ -5,9 +5,22 @@ error_reporting(0);
 if (strlen($_SESSION['hbmsuid'] == 0)) {
 	header('location:logout.php');
 } else {
-
+	if (isset($_SESSION['login_time'])) {
+		$current_time = time();
+		$session_lifetime = 24 * 60 * 60; // 24 hours
+	
+		// log out if session time exceed 24 hours
+		if ($current_time - $_SESSION['login_time'] > $session_lifetime) {
+			session_unset();
+			session_destroy();
+			echo "<script>alert('Your session has expired. Please login again.');</script>";
+			echo "<script type='text/javascript'> document.location ='login.php'; </script>";
+		}
+	
+		// Update time for new session
+		$_SESSION['login_time'] = $current_time;
+	}
 	if (isset($_POST['submit'])) {
-
 		$booknum = mt_rand(100000000, 999999999);
 		$rid = intval($_GET['rmid']);
 		$uid = $_SESSION['hbmsuid'];

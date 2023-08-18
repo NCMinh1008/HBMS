@@ -42,7 +42,7 @@ CREATE TABLE `tbladmin` (
 --
 
 INSERT INTO `tbladmin` (`ID`, `AdminName`, `UserName`, `MobileNumber`, `Email`, `Password`, `AdminRegdate`) VALUES
-(1, 'Admin', 'admin', 5689784592, 'admin@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2023-02-01 07:25:30');
+(1, 'Admin', 'admin', 5689784592, 'admin@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2023-07-01 07:25:30');
 
 -- --------------------------------------------------------
 
@@ -71,7 +71,7 @@ CREATE TABLE `tblbooking` (
 --
 
 INSERT INTO `tblbooking` (`ID`, `RoomId`, `BookingNumber`, `UserID`, `IDType`, `Gender`, `Address`, `CheckinDate`, `CheckoutDate`, `BookingDate`, `Remark`, `Status`, `UpdationDate`) VALUES
-(1, 1, '390343987', 3, 'Identification Card', 'Female', 'A 123 Gaur Apartment Ghaziabad UP 201017', '2023-05-10', '2023-05-15', '2023-05-02 07:12:29', 'Booking accepted', 'Approved', '2023-05-02 07:15:51'),
+(1, 1, '390343987', 3, 'Identification Card', 'Female', 'A 123 Gaur Apartment', '2023-05-10', '2023-05-15', '2023-05-02 07:12:29', 'Booking accepted', 'Approved', '2023-05-02 07:15:51'),
 (2, 2, '545403040', 4, 'Visa Card', 'Male', 'A 12232 ABC Apartment Mayur Vihar New Delhi', '2023-05-20', '2023-05-25', '2023-05-05 02:50:41', 'Booking Accepted', 'Approved', '2023-05-05 02:51:35');
 
 -- --------------------------------------------------------
@@ -120,7 +120,7 @@ CREATE TABLE `tblcontact` (
 --
 
 INSERT INTO `tblcontact` (`ID`, `Name`, `MobileNumber`, `Email`, `Message`, `EnquiryDate`, `IsRead`) VALUES
-(1, 'Joh Doe', 1425365412, 'johnd@gmail.com', 'I want o stay in hotel', '2023-05-05 02:53:52', 1);
+(1, 'Joh Doe', 1425365412, 'johnd@gmail.com', 'I want o stay in hotel', '2023-08-05 02:53:52', 1);
 
 -- --------------------------------------------------------
 
@@ -225,10 +225,11 @@ CREATE TABLE `tbluser` (
 --
 
 INSERT INTO `tbluser` (`ID`, `FullName`, `MobileNumber`, `Email`, `Password`, `RegDate`) VALUES
-(1, 'Test', 7897897899, 'test@gmail.com', '202cb962ac59075b964b07152d234b70', '2023-03-24 17:07:28'),
-(2, 'Sample', 4644654646, 'sample@gmail.com', '202cb962ac59075b964b07152d234b70', '2023-04-30 12:51:42'),
-(3, 'Anuj Kumar', 1234569871, 'Test@test.com', 'f925916e2754e5e03f75dd58a5733251', '2023-05-01 14:53:36'),
-(4, 'John Doe', 4125365412, 'johndeo@test.com', 'f925916e2754e5e03f75dd58a5733251', '2023-05-05 02:49:44');
+(1, 'Test', 7897897899, 'test@gmail.com', '202cb962ac59075b964b07152d234b70', '2023-07-24 17:07:28'),
+(2, 'Sample', 4644654646, 'sample@gmail.com', '202cb962ac59075b964b07152d234b70', '2023-07-30 12:51:42'),
+(3, 'Anu', 1234569871, 'Test@test.com', 'f925916e2754e5e03f75dd58a5733251', '2023-07-15 14:53:36'),
+(4, 'John Doe', 4125365412, 'johndeo@test.com', 'f925916e2754e5e03f75dd58a5733251', '2023-07-18 02:49:44');
+
 
 --
 -- Indexes for dumped tables

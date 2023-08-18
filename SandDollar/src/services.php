@@ -2,6 +2,21 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
+if (isset($_SESSION['login_time'])) {
+    $current_time = time();
+    $session_lifetime = 24 * 60 * 60; // 24 hours
+
+    // log out if session time exceed 24 hours
+    if ($current_time - $_SESSION['login_time'] > $session_lifetime) {
+        session_unset();
+        session_destroy();
+        echo "<script>alert('Your session has expired. Please login again.');</script>";
+        echo "<script type='text/javascript'> document.location ='login.php'; </script>";
+    }
+
+    // Update time for new session
+    $_SESSION['login_time'] = $current_time;
+}
 ?>
 
 <!DOCTYPE HTML>
