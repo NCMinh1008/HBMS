@@ -165,20 +165,25 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 																<img src="images/<?php echo $row->Image; ?>" width="100" height="100" value="<?php echo $row->Image; ?>">
 																<a href="changeimage.php?editid=<?php echo $row->ID; ?>"> &nbsp; Edit Image</a>
 															</div>
-															<div class="form-group"> <label for="exampleInputEmail1">Room Facility</label> <select type="text" name="roomfac[]" id="roomfac" value="" class="form-control" multiple="multiple">
-																	<option value="<?php echo $row->RoomFacility; ?>"><?php echo $row->RoomFacility; ?></option>
-																	<?php
+															<div class="form-group"> <label for="exampleInputEmail1">Room Facility</label>
+															<label for="exampleInputEmail1">Room Facility</label>
+																<?php
+																$sql2 = "SELECT * FROM tblfacility";
+																$query2 = $dbh->prepare($sql2);
+																$query2->execute();
+																$result2 = $query2->fetchAll(PDO::FETCH_OBJ);
+																$availableFacilities = explode(',', $row->RoomFacility); 
 
-
-																	$sql2 = "SELECT * from   tblfacility ";
-																	$query2 = $dbh->prepare($sql2);
-																	$query2->execute();
-																	$result2 = $query2->fetchAll(PDO::FETCH_OBJ);
-
-																	foreach ($result2 as $row3) {
+																foreach ($result2 as $row3) {
+																	$isChecked = in_array($row3->FacilityTitle, $availableFacilities) ? 'checked' : '';
 																	?>
-																		<option value="<?php echo htmlentities($row3->FacilityTitle); ?>"><?php echo htmlentities($row3->FacilityTitle); ?></option>
-																	<?php } ?>
+																	<div class="checkbox">
+																		<label>
+																			<input type="checkbox" name="roomfac[]" value="<?php echo htmlentities($row3->FacilityTitle); ?>" <?php echo $isChecked; ?>>
+																			<?php echo htmlentities($row3->FacilityTitle); ?>
+																		</label>
+																	</div>
+																<?php } ?>
 
 
 															<?php $cnt = $cnt + 1;

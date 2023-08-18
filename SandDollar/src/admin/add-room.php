@@ -168,20 +168,22 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 													<div class="form-group"> <label for="exampleInputEmail1">Room Description</label> <textarea type="text" class="form-control" name="roomdes" value=""></textarea> </div>
 													<div class="form-group"> <label for="exampleInputEmail1">No. of Bed</label> <input type="text" class="form-control" name="nobed" pattern="[0-9]+" required> </div>
 													<div class="form-group"> <label for="exampleInputEmail1">Room Image</label> <input type="file" class="form-control" name="image" value="" required='true'> </div>
-													<div class="form-group"> <label for="exampleInputEmail1">Room Facility</label> <select type="text" name="roomfac[]" id="roomfac" value="" class="form-control" required="true" multiple="multiple">
-															<?php
+													<div class="form-group"> <label for="exampleInputEmail1">Room Facility</label>
+														<?php
+														$sql2 = "SELECT * FROM tblfacility";
+														$query2 = $dbh->prepare($sql2);
+														$query2->execute();
+														$result2 = $query2->fetchAll(PDO::FETCH_OBJ);
 
-
-															$sql2 = "SELECT * from   tblfacility ";
-															$query2 = $dbh->prepare($sql2);
-															$query2->execute();
-															$result2 = $query2->fetchAll(PDO::FETCH_OBJ);
-
-															foreach ($result2 as $row) {
+														foreach ($result2 as $row3) {
 															?>
-																<option value="<?php echo htmlentities($row->FacilityTitle); ?>"><?php echo htmlentities($row->FacilityTitle); ?></option>
-															<?php } ?>
-
+															<div class="checkbox">
+																<label>
+																	<input type="checkbox" name="roomfac[]" value="<?php echo htmlentities($row3->FacilityTitle); ?>">
+																	<?php echo htmlentities($row3->FacilityTitle); ?>
+																</label>
+															</div>
+														<?php } ?>
 
 														</select> </div>
 
