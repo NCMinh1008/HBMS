@@ -63,6 +63,7 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 				window.scrollTo(0, 1);
 			}
 		</script>
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 		<!-- Bootstrap Core CSS -->
 		<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 		<!-- Custom CSS -->
@@ -117,6 +118,7 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 
 			});
 		</script>
+		<script src="js/bootstrap.js"></script>
 	</head>
 
 	<body>
@@ -161,13 +163,12 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 
 														</select> </div>
 													<div class="form-group"> <label for="exampleInputEmail1">Room Name</label> <input type="text" class="form-control" name="roomname" value="" required='true'> </div>
-													<div class="form-group"> <label for="exampleInputEmail1">Max Adult</label> <input type="text" class="form-control" name="maxadult" value="" required='true'> </div>
-													<div class="form-group"> <label for="exampleInputEmail1">Max Child</label> <input type="text" class="form-control" name="maxchild" value="" required='true'> </div>
+													<div class="form-group"> <label for="exampleInputEmail1">Max Adult</label> <input type="text" class="form-control" name="maxadult" pattern="[0-9]+" required> </div>
+													<div class="form-group"> <label for="exampleInputEmail1">Max Child</label> <input type="text" class="form-control" name="maxchild" pattern="[0-9]+" required> </div>
 													<div class="form-group"> <label for="exampleInputEmail1">Room Description</label> <textarea type="text" class="form-control" name="roomdes" value=""></textarea> </div>
-													<div class="form-group"> <label for="exampleInputEmail1">No. of Bed</label> <input type="text" class="form-control" name="nobed" value="" required='true'> </div>
+													<div class="form-group"> <label for="exampleInputEmail1">No. of Bed</label> <input type="text" class="form-control" name="nobed" pattern="[0-9]+" required> </div>
 													<div class="form-group"> <label for="exampleInputEmail1">Room Image</label> <input type="file" class="form-control" name="image" value="" required='true'> </div>
 													<div class="form-group"> <label for="exampleInputEmail1">Room Facility</label> <select type="text" name="roomfac[]" id="roomfac" value="" class="form-control" required="true" multiple="multiple">
-															<option value="">Choose Room Facility</option>
 															<?php
 
 
