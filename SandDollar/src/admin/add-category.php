@@ -6,25 +6,35 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 	header('location:logout.php');
 } else {
 	if (isset($_POST['submit'])) {
-
 		$hbmsaid = $_SESSION['hbmsaid'];
 		$cname = $_POST['cname'];
 		$catdes = $_POST['catdes'];
 		$price = $_POST['price'];
-
-		$sql = "insert into tblcategory(CategoryName,Description,Price)values(:cname,:catdes,:price)";
-		$query = $dbh->prepare($sql);
-		$query->bindParam(':cname', $cname, PDO::PARAM_STR);
-		$query->bindParam(':catdes', $catdes, PDO::PARAM_STR);
-		$query->bindParam(':price', $price, PDO::PARAM_STR);
-		$query->execute();
-
-		$LastInsertId = $dbh->lastInsertId();
-		if ($LastInsertId > 0) {
-			echo '<script>alert("Category has been added.")</script>';
-			echo "<script>window.location.href ='add-category.php'</script>";
+	
+		// Check for duplicate CategoryName before insertion
+		$checkSql = "SELECT COUNT(*) AS count FROM tblcategory WHERE CategoryName = :cname";
+		$checkQuery = $dbh->prepare($checkSql);
+		$checkQuery->bindParam(':cname', $cname, PDO::PARAM_STR);
+		$checkQuery->execute();
+		$count = $checkQuery->fetchColumn();
+	
+		if ($count > 0) {
+			echo '<script>alert("Category with the same name already exists.")</script>';
 		} else {
-			echo '<script>alert("Something Went Wrong. Please try again")</script>';
+			$sql = "INSERT INTO tblcategory (CategoryName, Description, Price) VALUES (:cname, :catdes, :price)";
+			$query = $dbh->prepare($sql);
+			$query->bindParam(':cname', $cname, PDO::PARAM_STR);
+			$query->bindParam(':catdes', $catdes, PDO::PARAM_STR);
+			$query->bindParam(':price', $price, PDO::PARAM_STR);
+			$query->execute();
+	
+			$lastInsertId = $dbh->lastInsertId();
+			if ($lastInsertId > 0) {
+				echo '<script>alert("Category has been added.")</script>';
+				echo "<script>window.location.href ='add-category.php'</script>";
+			} else {
+				echo '<script>alert("Something Went Wrong. Please try again.")</script>';
+			}
 		}
 	}
 
