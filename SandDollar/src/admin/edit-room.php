@@ -157,8 +157,8 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 
 																</select> </div>
 															<div class="form-group"> <label for="exampleInputEmail1">Room Name</label> <input type="text" class="form-control" name="roomname" value="<?php echo $row->RoomName; ?>" required='true'> </div>
-															<div class="form-group"> <label for="exampleInputEmail1">Max Adult</label> <input type="text" class="form-control" name="maxadult" value="<?php echo $row->MaxAdult; ?>" required='true'> </div>
-															<div class="form-group"> <label for="exampleInputEmail1">Max Child</label> <input type="text" class="form-control" name="maxchild" value="<?php echo $row->MaxChild; ?>" required='true'> </div>
+															<div class="form-group"> <label for="exampleInputEmail1">Max Adult</label> <input type="text" class="form-control" name="maxadult" value="<?php echo $row->MaxAdult; ?>" pattern="[0-9]+" required='true'> </div>
+															<div class="form-group"> <label for="exampleInputEmail1">Max Child</label> <input type="text" class="form-control" name="maxchild" value="<?php echo $row->MaxChild; ?>" pattern="[0-9]+" required='true'> </div>
 															<div class="form-group"> <label for="exampleInputEmail1">Room Description</label> <textarea type="text" class="form-control" name="roomdes"><?php echo $row->RoomDesc; ?></textarea> </div>
 															<div class="form-group"> <label for="exampleInputEmail1">No. of Bed</label> <input type="text" class="form-control" name="nobed" value="<?php echo $row->NoofBed; ?>" required='true'> </div>
 															<div class="form-group"> <label for="exampleInputEmail1">Room Image</label> &nbsp;&nbsp;

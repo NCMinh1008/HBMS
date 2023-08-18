@@ -137,7 +137,7 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 												<form method="post">
 													<div class="form-group"> <label for="exampleInputEmail1">Category Title</label> <input type="text" class="form-control" name="cname" value="" required='true'> </div>
 													<div class="form-group"> <label for="exampleInputEmail1">Description</label> <textarea type="text" class="form-control" name="catdes" value=""></textarea> </div>
-													<div class="form-group"> <label for="exampleInputEmail1">Price</label> <input type="text" class="form-control" name="price" value="" required='true'> </div>
+													<div class="form-group"> <label for="exampleInputEmail1">Price</label> <input type="text" class="form-control" name="price" value="" required pattern="[0-9]+"> </div>
 													<button type="submit" class="btn btn-default" name="submit">Add</button>
 												</form>
 											</div>
