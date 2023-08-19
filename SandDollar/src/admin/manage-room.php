@@ -86,6 +86,16 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 
 			});
 		</script>
+		  	<script>
+				$(document).ready(function() {
+				$('#search-input').on('keyup', function() {
+					var searchText = $(this).val().toLowerCase();
+					$('table tbody tr').filter(function() {
+					$(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+					});
+				});
+				});
+			</script>
 	</head>
 
 	<body>
@@ -109,6 +119,9 @@ if (strlen($_SESSION['hbmsaid'] == 0)) {
 										<div class="form-grids widget-shadow" data-example-id="basic-forms">
 											<div class="form-title">
 												<h4>Manage Room </h4>
+												<div class="form-group">
+													<input type="text" class="form-control" id="search-input" placeholder="Search by Room Name">
+												</div>
 											</div>
 											<div class="form-body">
 
